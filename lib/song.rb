@@ -36,7 +36,7 @@ class Song
         return nil if (song.nil?)
         Song.new(self.keys_to_sym(song))
     end
-    def self.clearss
+    def self.clear
         DB.exec("DELETE FROM songs *;")
     end
     def self.find_by_album(alb_id)

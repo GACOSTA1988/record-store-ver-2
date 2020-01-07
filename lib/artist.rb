@@ -14,11 +14,11 @@ class Artist
             @name = attributes[:name]
             DB.exec("UPDATE artists SET name = '#{@name}' WHERE id = #{@id};")
         end
-        unless attributes[:album_name].nil?
-            album = DB.exec("SELECT * FROM albums WHERE lower(name)='#{attributes[:album_name].downcase}';").first
-            unless album.nil?
-                DB.exec("INSERT INTO albums_artists (album_id, artist_id) VALUES (#{album['id'].to_i}, #{@id});")
-            end
+    end
+    def add_album(album_name)
+        album = DB.exec("SELECT * FROM albums WHERE lower(name)='#{album_name.downcase}';").first
+        unless album.nil?
+            DB.exec("INSERT INTO albums_artists (album_id, artist_id) VALUES (#{album['id'].to_i}, #{@id});")
         end
     end
     def delete

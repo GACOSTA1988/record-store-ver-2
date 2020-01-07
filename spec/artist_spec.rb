@@ -14,11 +14,11 @@ describe 'Artist' do
             expect(Artist.all).to include(artist)
         end
     end
-    describe '#update' do
+    describe '#add_ablum' do
         it 'adds an album to an artist' do
             artist = Artist.new({name: 'John Coltrane'}).save
             album = Album.new({name: 'A Love Supreme'}).save
-            artist.update({album_name: 'A Love Supreme'})
+            artist.add_album('A Love Supreme')
             expect(artist.albums).to include(album)
         end
     end

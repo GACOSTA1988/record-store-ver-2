@@ -12,6 +12,15 @@
 <p>There are no songs listed for this album yet.</p>
 <% end %>
 
+<!-- <form id='info'>
+    <label class='clicky'>
+        <input name='album_name' type='text' placeholder='<%= @album.name %>'>
+        <h3><%= @album.name %></h3>
+        <img src='/img/edit.png'>
+    </label>
+
+</form> -->
+
 <h4>Add a song:</h4>
 
 <form action="/albums/<%= @album.id %>" method="post">
